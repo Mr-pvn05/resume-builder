@@ -1,8 +1,12 @@
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const EditResume = () => {
-  return (
-    <div>EditResume</div>
-  )
-}
+  const { resumeId } = useParams();
+  useEffect(() => {
+    console.log("Path : ", resumeId);
+  }, []);
+  return <div>EditResume</div>;
+};
 
-export default EditResume
+export default EditResume;
