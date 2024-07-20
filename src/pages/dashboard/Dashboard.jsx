@@ -6,7 +6,6 @@ import ResumeCard from "@/components/ResumeCard.jsx";
 
 const Dashboard = () => {
   const { user } = useUser();
-  console.log("User : ", user);
   const [resumeList, setResumeList] = useState([]);
 
   useEffect(() => {
@@ -17,7 +16,6 @@ const Dashboard = () => {
   const getResumeList = () => {
     getUserResumes(user?.primaryEmailAddress?.emailAddress)
       .then((res) => {
-        console.log("User resumes list : ", res.data);
         setResumeList(res?.data.data);
       })
       .catch((error) => {

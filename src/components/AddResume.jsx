@@ -12,7 +12,6 @@ import { Input } from "./ui/input";
 import { v4 as uuidv4 } from "uuid";
 import { createNewResume } from "../../service/global.api.js";
 import { useUser } from "@clerk/clerk-react";
-import { toast } from "./ui/use-toast";
 import { useNavigate } from "react-router-dom";
 
 const AddResume = () => {
@@ -36,7 +35,7 @@ const AddResume = () => {
     createNewResume(data)
       .then((res) => {
         console.log("Response : ", res);
-        navigation(`/dashboard/resume/${uuid}/edit`);
+        navigation(`/dashboard/resume/${res.data.data.documentId}/edit`);
         setLoading(false);
         // toast({
         //   description: "Resume created sucessfully.",
